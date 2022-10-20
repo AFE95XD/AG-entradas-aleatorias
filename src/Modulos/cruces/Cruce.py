@@ -57,19 +57,24 @@ def cruce(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
                 tabla.iloc[p2-1, 0] = hijo1
                 tabla.iloc[p2-1, 1] = adapHijo1
                 print("El hijo 1 sustituye a padre 2")
+                print("-----------------------------")
             else:
                 tabla.iloc[p1-1, 0] = hijo1
                 tabla.iloc[p1-1, 1] = adapHijo1
                 print("El hijo 1 sustituye a padre 1")
+                print("-----------------------------")
+
         else:
             if adap1 > adap2:
                 tabla.iloc[p2-1, 0] = hijo2
                 tabla.iloc[p2-1, 1] = adapHijo2
                 print("El hijo 2 sustituye a padre 2")
+                print("-----------------------------")
             else:
                 tabla.iloc[p1-1, 0] = hijo2
                 tabla.iloc[p1-1, 1] = adapHijo2
                 print("El hijo 2 sustituye a padre 1")
+                print("-----------------------------")
     print()
     print("La tabla con los cruceces es: \n")
     print(tabla)
@@ -128,29 +133,33 @@ def cruceAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce):
                 tabla.iloc[p2-1, 0] = hijo1
                 tabla.iloc[p2-1, 1] = adapHijo1
                 print("El hijo 1 sustituye a padre 2")
+                print("-----------------------------")
             else:
                 tabla.iloc[p1-1, 0] = hijo1
                 tabla.iloc[p1-1, 1] = adapHijo1
                 print("El hijo 1 sustituye a padre 1")
+                print("-----------------------------")
         else:
             if adap1 > adap2:
                 tabla.iloc[p2-1, 0] = hijo2
                 tabla.iloc[p2-1, 1] = adapHijo2
                 print("El hijo 2 sustituye a padre 2")
+                print("-----------------------------")
             else:
                 tabla.iloc[p1-1, 0] = hijo2
                 tabla.iloc[p1-1, 1] = adapHijo2
                 print("El hijo 2 sustituye a padre 1")
+                print("-----------------------------")
     print()
     print("La tabla con los cruceces es: \n")
     print(tabla)
     return tabla, valoresLongitud
 
-def cruceJerar(poblacion, longitud, rangoMin, rangoMax):
+def cruceJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
     tabla, valoresLongitud = jer(
         poblacion, longitud, rangoMin, rangoMax)
 
-    tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
+    # tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
 
     regl3 = round((tazaCruce * len(valoresLongitud)) / 100)
 
@@ -158,11 +167,14 @@ def cruceJerar(poblacion, longitud, rangoMin, rangoMax):
         regl3 = 1
 
     print("\nSe procede hacer", regl3, "cruces.\n")
-    pc = int(input("Introduce punto de corte: "))
+    # pc = int(input("Introduce punto de corte: "))
+    pc =random.randint(1, len(valoresLongitud))
 
     for i in range(regl3):
-        p1 = int(input("\nIntroduce el indice del padre 1: "))
-        p2 = int(input("Introduce el indice del padre 2: "))
+        # p1 = int(input("\nIntroduce el indice del padre 1: "))
+        # p2 = int(input("Introduce el indice del padre 2: "))
+        p1 = random.randint(1, len(valoresLongitud))
+        p2 = random.randint(1, len(valoresLongitud))
 
         # aqui se obtine el binario
         padre1 = tabla.iloc[p1-1].values[0]
@@ -195,25 +207,29 @@ def cruceJerar(poblacion, longitud, rangoMin, rangoMax):
                 tabla.iloc[p2-1, 0] = hijo1
                 tabla.iloc[p2-1, 1] = adapHijo1
                 print("El hijo 1 sustituye a padre 2")
+                print("-----------------------------")
             else:
                 tabla.iloc[p1-1, 0] = hijo1
                 tabla.iloc[p1-1, 1] = adapHijo1
                 print("El hijo 1 sustituye a padre 1")
+                print("-----------------------------")
         else:
             if adap1 > adap2:
                 tabla.iloc[p2-1, 0] = hijo2
                 tabla.iloc[p2-1, 1] = adapHijo2
                 print("El hijo 2 sustituye a padre 2")
+                print("-----------------------------")
             else:
                 tabla.iloc[p1-1, 0] = hijo2
                 tabla.iloc[p1-1, 1] = adapHijo2
                 print("El hijo 2 sustituye a padre 1")
+                print("-----------------------------")
     print()
     print("La tabla con los cruceces es: \n")
     print(tabla)
     return tabla, valoresLongitud
 
-def cruceAutoJerar(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
+def cruceAutoJerar(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce):
     tabla, valoresLongitud = jerAuto(
         listaBin, poblacion, longitud, rangoMin, rangoMax, i)
 
@@ -262,19 +278,23 @@ def cruceAutoJerar(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
                 tabla.iloc[p2-1, 0] = hijo1
                 tabla.iloc[p2-1, 1] = adapHijo1
                 print("El hijo 1 sustituye a padre 2")
+                print("-----------------------------")
             else:
                 tabla.iloc[p1-1, 0] = hijo1
                 tabla.iloc[p1-1, 1] = adapHijo1
                 print("El hijo 1 sustituye a padre 1")
+                print("-----------------------------")
         else:
             if adap1 > adap2:
                 tabla.iloc[p2-1, 0] = hijo2
                 tabla.iloc[p2-1, 1] = adapHijo2
                 print("El hijo 2 sustituye a padre 2")
+                print("-----------------------------")
             else:
                 tabla.iloc[p1-1, 0] = hijo2
                 tabla.iloc[p1-1, 1] = adapHijo2
                 print("El hijo 2 sustituye a padre 1")
+                print("-----------------------------")
     print()
     print("La tabla con los cruceces es: \n")
     print(tabla)

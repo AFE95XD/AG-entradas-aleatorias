@@ -25,6 +25,8 @@ def binarioDecimalAuto(listaBin, poblacion, longitud):
     listaStr = []
     listaDecimales = []
     listaBinarios = []
+    # print(listaBin)
+    # input("Espera")
     i = 1
     while i <= int(poblacion):
         if len(listaBin[i-1]) == longitud:

@@ -7,11 +7,13 @@ from ..opBasicas.BinarioDecimal import binarioDecimal, binarioDecimalAuto
 # Este es el rango que proporciona para evaluar la funcion
 # rangoMin = 1
 # rangoMax = 8  # 9
-
+writer = pd.ExcelWriter("src/img/tablasIndi.xlsx", engine='openpyxl')
 
 def funcionMatematica(valor):
     # fx = (5 * math.sin(valor)) + (2 * math.pow(valor, 2))
-    fx = ((8 * math.cos(valor)) + valor + (5 * math.pow(valor, 2)))
+    # fx = ((8 * math.cos(valor)) + valor + (5 * math.pow(valor, 2)))
+    # fx = ((6 * math.sin(valor)) + (3 * math.pow(valor, 2)))
+    fx = (8 * math.sin(2 * valor)+ (6 * valor))
     # fx = (5*math.sin(valor) + 3*valor + 4 * (valor**2))
     return fx
 
@@ -24,8 +26,10 @@ def sacarReal(decimal, lng, rangoMin, rangoMax):
 
 def sacarAdaptado(real):
     # fun = (5 * math.sin(real)) + (2 * math.pow(real, 2))
-    fun = ((8 * math.cos(real)) + real + (5 * math.pow(real, 2)))
+    # fun = ((8 * math.cos(real)) + real + (5 * math.pow(real, 2)))
     # fun = (5*math.sin(real) + 3*real + 4 * (real**2))
+    # fun = ((6 * math.sin(real)) + (3 * math.pow(real, 2)))
+    fun = (8 * math.sin(2 * real)+ (6 * real))
     return fun
 
 
@@ -99,16 +103,20 @@ def DecodificacionManuales(poblacion, longitud, rangoMin, rangoMax):
 
     # print(dic)
     '''PARA GRAFICAR'''
-    # xpoints = valoresLongitud
-    # ypoints = listaAdaptado
+    xpoints = valoresLongitud
+    ypoints = listaAdaptado
 
-    # plt.plot(xpoints, ypoints)
+    plt.figure()
 
-    # plt.title("Valor Adaptado VS Valor Maximo")
-    # plt.xlabel("Individuos")
-    # plt.ylabel("Valor Adaptado")
+    plt.plot(xpoints, ypoints, 'o')
 
-    # plt.show()
+    plt.title("Individuos Iniciales")
+    plt.xlabel("Individuos")
+    plt.ylabel("Valor Adaptado")
+    plt.savefig("src/img/Individuos Iniciales.jpg")
+    
+    tablaManual.to_excel(writer, sheet_name=f"Hoja1")
+    writer.save()
     return tablaManual, valoresLongitud
 # DecodificacionManuales(10,9,1,9)
 
@@ -174,14 +182,19 @@ def DecodificacionAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
 
     # print(dic)
     '''PARA GRAFICAR'''
-    # xpoints = valoresLongitud
-    # ypoints = listaAdaptado
 
-    # plt.plot(xpoints, ypoints)
+    xpoints = valoresLongitud
+    ypoints = listaAdaptado
 
-    # plt.title("Valor Adaptado VS Valor Maximo")
-    # plt.xlabel("Individuos")
-    # plt.ylabel("Valor Adaptado")
+    plt.figure()
 
+    plt.plot(xpoints, ypoints, 'o')
+
+    plt.title(f"Generacion {i}")
+    plt.xlabel("Individuos")
+    plt.ylabel("Valor Adaptado")
+    plt.savefig(f"src/img/Genaracion {i}.jpg")
     # plt.show()
+    tablaManual.to_excel(writer, sheet_name=f"Hoja{i+1}")
+    writer.save()
     return tablaManual, valoresLongitud

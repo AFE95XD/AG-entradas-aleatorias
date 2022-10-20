@@ -41,6 +41,7 @@ def jer(poblacion, longitud, rangoMin, rangoMax):
     }
     tablaOrdenada = pd.DataFrame(dicOrdFil, index=valoresLongitud)
     print(tablaOrdenada)
+    input()
     return tablaOrdenada, valoresLongitud
 
 def jerAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):

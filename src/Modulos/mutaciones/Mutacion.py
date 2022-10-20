@@ -15,7 +15,7 @@ def mutacion(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
     # i = int(input("\nPor favor ingrese el incide del individuo a mutar: "))
     i = random.randint(1, len(valoresLongitud))
     # bit = int(input("\nPor favor ingrese el bit a mutar: "))
-    bit = random.randint(1, len(longitud))
+    bit = random.randint(1, longitud)
 
     indi = tabla.iloc[i-1].values[0]
 
@@ -41,10 +41,10 @@ def mutacion(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
     lista = dic["Binarios"]
     # print(dic)
     # print(lista)
-    return lista
+    return lista, tabla
 
 def mutacionAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce, tazaMutacion):
-    tabla, valoresLongitud = cruceAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce, tazaMutacion)
+    tabla, valoresLongitud = cruceAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce)
     # tazaMutacion = int(input("\nPor favor ingrese la Taza de Mutacion: "))
 
     regl3 = round((tazaMutacion * len(valoresLongitud)) / 100)
@@ -55,7 +55,7 @@ def mutacionAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce
     # i = int(input("\nPor favor ingrese el incide del individuo a mutar: "))
     i = random.randint(1, len(valoresLongitud))
     # bit = int(input("\nPor favor ingrese el bit a mutar: "))
-    bit = random.randint(1, len(longitud))
+    bit = random.randint(1, longitud)
 
     indi = tabla.iloc[i-1].values[0]
 
@@ -82,10 +82,10 @@ def mutacionAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce
     # print(dic)
     # print(lista)
 
-    return lista
+    return lista, tabla
 
-def mutacionJerar(poblacion, longitud, rangoMin, rangoMax):
-    tabla, valoresLongitud = cruceJerar(poblacion, longitud, rangoMin, rangoMax)
+def mutacionJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
+    tabla, valoresLongitud = cruceJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
     tazaMutacion = int(input("\nPor favor ingrese la Taza de Mutacion: "))
 
     regl3 = round((tazaMutacion * len(valoresLongitud)) / 100)
