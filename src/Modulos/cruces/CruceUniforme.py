@@ -20,13 +20,12 @@ from ..opBasicas.Decodificacion import deco
 
 # print(hijo1)
 # print(hijo2)
+'''CRUCE UNIFORME : Ruleta'''
+def cruceUniforme(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
 
-def cruceUniforme(poblacion, longitud, rangoMin, rangoMax):
+    tabla, valoresLongitud = tablaOrdenadaManual(poblacion, longitud, rangoMin, rangoMax)
 
-    tabla, valoresLongitud = tablaOrdenadaManual(
-        poblacion, longitud, rangoMin, rangoMax)
-
-    tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
+    # tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
 
     regl3 = round((tazaCruce * len(valoresLongitud)) / 100)
 
@@ -34,11 +33,18 @@ def cruceUniforme(poblacion, longitud, rangoMin, rangoMax):
         regl3 = 1
 
     print("\nSe procede hacer", regl3, "cruces.\n")
-    mascara = input("Introduce la mascara: ")
+    # mascara = input("Introduce la mascara: ")
+    mascara = ""
+    for y in range(int(longitud)):
+        numero = str(random.randint(0, 1))
+        mascara += numero
+    print("La mascara es:", mascara, "\n")
 
     for i in range(regl3):
-        p1 = int(input("\nIntroduce el indice del padre 1: "))
-        p2 = int(input("Introduce el indice del padre 2: "))
+        # p1 = int(input("\nIntroduce el indice del padre 1: "))
+        # p2 = int(input("Introduce el indice del padre 2: "))
+        p1 = random.randint(1, len(valoresLongitud))
+        p2 = random.randint(1, len(valoresLongitud))
 
         # aqui se obtine el binario
         padre1 = tabla.iloc[p1-1].values[0]
@@ -95,8 +101,7 @@ def cruceUniforme(poblacion, longitud, rangoMin, rangoMax):
 
 def cruceUniformeAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
 
-    tabla, valoresLongitud = tablaOrdenadaAuto(
-        listaBin, poblacion, longitud, rangoMin, rangoMax, i)
+    tabla, valoresLongitud = tablaOrdenadaAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i)
 
     tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
 
@@ -106,11 +111,18 @@ def cruceUniformeAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
         regl3 = 1
 
     print("\nSe procede hacer", regl3, "cruces.\n")
-    mascara = input("Introduce la mascara: ")
+    # mascara = input("Introduce la mascara: ")
+    mascara = ""
+    for y in range(int(longitud)):
+        numero = str(random.randint(0, 1))
+        mascara += numero
+    print("La mascara es:", mascara, "\n")
 
     for i in range(regl3):
-        p1 = int(input("\nIntroduce el indice del padre 1: "))
-        p2 = int(input("Introduce el indice del padre 2: "))
+        # p1 = int(input("\nIntroduce el indice del padre 1: "))
+        # p2 = int(input("Introduce el indice del padre 2: "))
+        p1 = random.randint(1, len(valoresLongitud))
+        p2 = random.randint(1, len(valoresLongitud))
 
         # aqui se obtine el binario
         padre1 = tabla.iloc[p1-1].values[0]
@@ -165,6 +177,7 @@ def cruceUniformeAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
     print(tabla)
     return tabla, valoresLongitud
 
+'''CRUCE 2 PUNTOS : Jerarquico'''
 def cruceUniformeJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
 
     tabla, valoresLongitud = jer(poblacion, longitud, rangoMin, rangoMax)
@@ -182,6 +195,7 @@ def cruceUniformeJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
     for y in range(int(longitud)):
         numero = str(random.randint(0, 1))
         mascara += numero
+    print("La mascara es:", mascara, "\n")
 
     for i in range(regl3):
         # p1 = int(input("\nIntroduce el indice del padre 1: "))
@@ -258,6 +272,7 @@ def cruceUniformeAutoJerar(listaBin, poblacion, longitud, rangoMin, rangoMax, i,
     for y in range(int(longitud)):
         numero = str(random.randint(0, 1))
         mascara += numero
+    print("La mascara es:", mascara, "\n")
 
     for i in range(regl3):
         # p1 = int(input("\nIntroduce el indice del padre 1: "))

@@ -13,8 +13,8 @@ def funcionMatematica(valor):
     # fx = (5 * math.sin(valor)) + (2 * math.pow(valor, 2))
     # fx = ((8 * math.cos(valor)) + valor + (5 * math.pow(valor, 2)))
     # fx = ((6 * math.sin(valor)) + (3 * math.pow(valor, 2)))
-    fx = (8 * math.sin(2 * valor)+ (6 * valor))
-    # fx = (5*math.sin(valor) + 3*valor + 4 * (valor**2))
+    # fx = (8 * math.sin(2 * valor)+ (6 * valor))
+    fx = (5*math.sin(valor) + 3*valor + 4 * (valor**2))
     return fx
 
 
@@ -27,9 +27,9 @@ def sacarReal(decimal, lng, rangoMin, rangoMax):
 def sacarAdaptado(real):
     # fun = (5 * math.sin(real)) + (2 * math.pow(real, 2))
     # fun = ((8 * math.cos(real)) + real + (5 * math.pow(real, 2)))
-    # fun = (5*math.sin(real) + 3*real + 4 * (real**2))
+    fun = (5*math.sin(real) + 3*real + 4 * (real**2))
     # fun = ((6 * math.sin(real)) + (3 * math.pow(real, 2)))
-    fun = (8 * math.sin(2 * real)+ (6 * real))
+    # fun = (8 * math.sin(2 * real)+ (6 * real))
     return fun
 
 

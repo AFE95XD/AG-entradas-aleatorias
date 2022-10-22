@@ -2,7 +2,7 @@ import random
 from ..cruces.Cruce import cruce, cruceAuto, cruceJerar, cruceAutoJerar
 from ..opBasicas.Decodificacion import deco
 
-
+'''MUTACION SIMPLE : Ruleta + Cruce de 1 punto'''
 def mutacion(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
     tabla, valoresLongitud = cruce(poblacion, longitud, rangoMin, rangoMax, tazaCruce)
     # tazaMutacion = int(input("\nPor favor ingrese la Taza de Mutacion: "))
@@ -84,17 +84,20 @@ def mutacionAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce
 
     return lista, tabla
 
+'''MUTACION SIMPLE: Jerarquica + Cruce de 1 punto'''
 def mutacionJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
-    tabla, valoresLongitud = cruceJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
-    tazaMutacion = int(input("\nPor favor ingrese la Taza de Mutacion: "))
+    tabla, valoresLongitud = cruceJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce)
+    # tazaMutacion = int(input("\nPor favor ingrese la Taza de Mutacion: "))
 
     regl3 = round((tazaMutacion * len(valoresLongitud)) / 100)
 
     if regl3 == 0:
         regl3 = 1
 
-    i = int(input("\nPor favor ingrese el incide del individuo a mutar: "))
-    bit = int(input("\nPor favor ingrese el bit a mutar: "))
+    # i = int(input("\nPor favor ingrese el incide del individuo a mutar: "))
+    i = random.randint(1, len(valoresLongitud))
+    # bit = int(input("\nPor favor ingrese el bit a mutar: "))
+    bit = random.randint(1, longitud)
 
     indi = tabla.iloc[i-1].values[0]
 
@@ -120,20 +123,21 @@ def mutacionJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutaci
     lista = dic["Binarios"]
     # print(dic)
     # print(lista)
-    return lista
+    return lista, tabla
 
-def mutacionAutoJerar(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
-    tabla, valoresLongitud = cruceAutoJerar(
-        listaBin, poblacion, longitud, rangoMin, rangoMax, i)
-    tazaMutacion = int(input("\nPor favor ingrese la Taza de Mutacion: "))
+def mutacionAutoJerar(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce, tazaMutacion):
+    tabla, valoresLongitud = cruceAutoJerar(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce)
+    # tazaMutacion = int(input("\nPor favor ingrese la Taza de Mutacion: "))
 
     regl3 = round((tazaMutacion * len(valoresLongitud)) / 100)
 
     if regl3 == 0:
         regl3 = 1
 
-    i = int(input("\nPor favor ingrese el incide del individuo a mutar: "))
-    bit = int(input("\nPor favor ingrese el bit a mutar: "))
+    # i = int(input("\nPor favor ingrese el incide del individuo a mutar: "))
+    i = random.randint(1, len(valoresLongitud))
+    # bit = int(input("\nPor favor ingrese el bit a mutar: "))
+    bit = random.randint(1, longitud)
 
     indi = tabla.iloc[i-1].values[0]
 
@@ -160,4 +164,4 @@ def mutacionAutoJerar(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
     # print(dic)
     # print(lista)
 
-    return lista
+    return lista, tabla

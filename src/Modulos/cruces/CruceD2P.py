@@ -1,14 +1,14 @@
+import random
 from ..selecOrdenamiento.Ruleta import tablaOrdenadaManual, tablaOrdenadaAuto
 from ..selecOrdenamiento.Jerarquia import jer, jerAuto
 from ..opBasicas.Decodificacion import deco
 
+'''CRUCE 2 PUNTOS : Ruleta'''
+def cruce2P(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
 
-def cruce2P(poblacion, longitud, rangoMin, rangoMax):
+    tabla, valoresLongitud = tablaOrdenadaManual(poblacion, longitud, rangoMin, rangoMax)
 
-    tabla, valoresLongitud = tablaOrdenadaManual(
-        poblacion, longitud, rangoMin, rangoMax)
-
-    tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
+    # tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
 
     regl3 = round((tazaCruce * len(valoresLongitud)) / 100)
 
@@ -16,12 +16,24 @@ def cruce2P(poblacion, longitud, rangoMin, rangoMax):
         regl3 = 1
 
     print("\nSe procede hacer", regl3, "cruces.\n")
-    pcMin = int(input("Introduce el punto de corte Minimo: "))
-    pcMax = int(input("Introduce el punto de corte Maximo: "))
+    # pcMin = int(input("Introduce el punto de corte Minimo: "))
+    # pcMax = int(input("Introduce el punto de corte Maximo: "))
+    mitad = round(longitud/2)
+    print(mitad)
+    pcMax = random.randint(mitad, longitud)
+    pcMin = random.randint(1, mitad)
+    while pcMax == pcMin:
+        pcMin = random.randint(1, mitad)
+    print(f"El punto de corte maximo para esta generacion es: {pcMax} \n")
+    print(f"El punto de corte minimo para esta generacion es: {pcMin} \n")
 
     for i in range(regl3):
-        p1 = int(input("\nIntroduce el indice del padre 1: "))
-        p2 = int(input("Introduce el indice del padre 2: "))
+        # p1 = int(input("\nIntroduce el indice del padre 1: "))
+        # p2 = int(input("Introduce el indice del padre 2: "))
+        p1 = random.randint(1, len(valoresLongitud))
+        p2 = random.randint(1, len(valoresLongitud))
+        while p1 == p2:
+            p2 = random.randint(1, len(valoresLongitud))
 
         # aqui se obtine el binario
         padre1 = tabla.iloc[p1-1].values[0]
@@ -84,12 +96,11 @@ def cruce2P(poblacion, longitud, rangoMin, rangoMax):
     print(tabla)
     return tabla, valoresLongitud
 
-def cruce2PAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
+def cruce2PAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce):
 
-    tabla, valoresLongitud = tablaOrdenadaAuto(
-        listaBin, poblacion, longitud, rangoMin, rangoMax, i)
+    tabla, valoresLongitud = tablaOrdenadaAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i)
 
-    tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
+    # tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
 
     regl3 = round((tazaCruce * len(valoresLongitud)) / 100)
 
@@ -97,12 +108,24 @@ def cruce2PAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
         regl3 = 1
 
     print("\nSe procede hacer", regl3, "cruces.\n")
-    pcMin = int(input("Introduce el punto de corte Minimo: "))
-    pcMax = int(input("Introduce el punto de corte Maximo: "))
+    # pcMin = int(input("Introduce el punto de corte Minimo: "))
+    # pcMax = int(input("Introduce el punto de corte Maximo: "))
+    mitad = round(longitud/2)
+    print(mitad)
+    pcMax = random.randint(mitad, longitud)
+    pcMin = random.randint(1, mitad)
+    while pcMax == pcMin:
+        pcMin = random.randint(1, mitad)
+    print(f"El punto de corte maximo para esta generacion es: {pcMax} \n")
+    print(f"El punto de corte minimo para esta generacion es: {pcMin} \n")
 
     for i in range(regl3):
-        p1 = int(input("\nIntroduce el indice del padre 1: "))
-        p2 = int(input("Introduce el indice del padre 2: "))
+        # p1 = int(input("\nIntroduce el indice del padre 1: "))
+        # p2 = int(input("Introduce el indice del padre 2: "))
+        p1 = random.randint(1, len(valoresLongitud))
+        p2 = random.randint(1, len(valoresLongitud))
+        while p1 == p2:
+            p2 = random.randint(1, len(valoresLongitud))
 
         # aqui se obtine el binario
         padre1 = tabla.iloc[p1-1].values[0]
@@ -165,12 +188,12 @@ def cruce2PAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
     print(tabla)
     return tabla, valoresLongitud
 
-def cruce2PJerar(poblacion, longitud, rangoMin, rangoMax):
+'''CRUCE 2 PUNTOS : Jerarquico'''
+def cruce2PJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
 
-    tabla, valoresLongitud = jer(
-        poblacion, longitud, rangoMin, rangoMax)
+    tabla, valoresLongitud = jer(poblacion, longitud, rangoMin, rangoMax)
 
-    tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
+    # tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
 
     regl3 = round((tazaCruce * len(valoresLongitud)) / 100)
 
@@ -178,12 +201,24 @@ def cruce2PJerar(poblacion, longitud, rangoMin, rangoMax):
         regl3 = 1
 
     print("\nSe procede hacer", regl3, "cruces.\n")
-    pcMin = int(input("Introduce el punto de corte Minimo: "))
-    pcMax = int(input("Introduce el punto de corte Maximo: "))
+    # pcMin = int(input("Introduce el punto de corte Minimo: "))
+    # pcMax = int(input("Introduce el punto de corte Maximo: "))
+    mitad = round(longitud/2)
+    print(mitad)
+    pcMax = random.randint(mitad, longitud)
+    pcMin = random.randint(1, mitad)
+    while pcMax == pcMin:
+        pcMin = random.randint(1, mitad)
+    print(f"El punto de corte maximo para esta generacion es: {pcMax} \n")
+    print(f"El punto de corte minimo para esta generacion es: {pcMin} \n")
 
     for i in range(regl3):
-        p1 = int(input("\nIntroduce el indice del padre 1: "))
-        p2 = int(input("Introduce el indice del padre 2: "))
+        # p1 = int(input("\nIntroduce el indice del padre 1: "))
+        # p2 = int(input("Introduce el indice del padre 2: "))
+        p1 = random.randint(1, len(valoresLongitud))
+        p2 = random.randint(1, len(valoresLongitud))
+        while p1 == p2:
+            p2 = random.randint(1, len(valoresLongitud))
 
         # aqui se obtine el binario
         padre1 = tabla.iloc[p1-1].values[0]
@@ -259,12 +294,24 @@ def cruce2PAutoJerar(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
         regl3 = 1
 
     print("\nSe procede hacer", regl3, "cruces.\n")
-    pcMin = int(input("Introduce el punto de corte Minimo: "))
-    pcMax = int(input("Introduce el punto de corte Maximo: "))
+    # pcMin = int(input("Introduce el punto de corte Minimo: "))
+    # pcMax = int(input("Introduce el punto de corte Maximo: "))
+    mitad = round(longitud/2)
+    print(mitad)
+    pcMax = random.randint(mitad, longitud)
+    pcMin = random.randint(1, mitad)
+    while pcMax == pcMin:
+        pcMin = random.randint(1, mitad)
+    print(f"El punto de corte maximo para esta generacion es: {pcMax} \n")
+    print(f"El punto de corte minimo para esta generacion es: {pcMin} \n")
 
     for i in range(regl3):
-        p1 = int(input("\nIntroduce el indice del padre 1: "))
-        p2 = int(input("Introduce el indice del padre 2: "))
+        # p1 = int(input("\nIntroduce el indice del padre 1: "))
+        # p2 = int(input("Introduce el indice del padre 2: "))
+        p1 = random.randint(1, len(valoresLongitud))
+        p2 = random.randint(1, len(valoresLongitud))
+        while p1 == p2:
+            p2 = random.randint(1, len(valoresLongitud))
 
         # aqui se obtine el binario
         padre1 = tabla.iloc[p1-1].values[0]

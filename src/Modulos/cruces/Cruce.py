@@ -3,7 +3,7 @@ from ..selecOrdenamiento.Ruleta import tablaOrdenadaManual, tablaOrdenadaAuto
 from ..selecOrdenamiento.Jerarquia import jer, jerAuto
 from ..opBasicas.Decodificacion import deco
 
-
+'''CRUCE 1 PUNTO : Ruleta'''
 def cruce(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
     tabla, valoresLongitud = tablaOrdenadaManual(poblacion, longitud, rangoMin, rangoMax)
 
@@ -16,7 +16,8 @@ def cruce(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
 
     print("\nSe procede hacer", regl3, "cruces.\n")
     # pc = int(input("Introduce punto de corte: "))
-    pc = random.randint(1, len(valoresLongitud))
+    pc = random.randint(1, longitud)
+    print(f"El punto de corte para esta generacion es: {pc} \n")
 
     for i in range(regl3):
         # p1 = int(input("\nIntroduce el indice del padre 1: "))
@@ -92,7 +93,8 @@ def cruceAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce):
 
     print("\nSe procede hacer", regl3, "cruces.\n")
     # pc = int(input("Introduce punto de corte: "))
-    pc =random.randint(1, len(valoresLongitud))
+    pc = random.randint(1, longitud)
+    print(f"El punto de corte para esta generacion es: {pc} \n")
 
     for i in range(regl3):
         # p1 = int(input("\nIntroduce el indice del padre 1: "))
@@ -155,9 +157,9 @@ def cruceAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce):
     print(tabla)
     return tabla, valoresLongitud
 
+'''CRUCE 1 PUNTO : Jerarquico'''
 def cruceJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
-    tabla, valoresLongitud = jer(
-        poblacion, longitud, rangoMin, rangoMax)
+    tabla, valoresLongitud = jer(poblacion, longitud, rangoMin, rangoMax)
 
     # tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
 
@@ -168,13 +170,16 @@ def cruceJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
 
     print("\nSe procede hacer", regl3, "cruces.\n")
     # pc = int(input("Introduce punto de corte: "))
-    pc =random.randint(1, len(valoresLongitud))
+    pc = random.randint(1, longitud)
+    print(f"El punto de corte para esta generacion es: {pc} \n")
 
     for i in range(regl3):
         # p1 = int(input("\nIntroduce el indice del padre 1: "))
         # p2 = int(input("Introduce el indice del padre 2: "))
         p1 = random.randint(1, len(valoresLongitud))
         p2 = random.randint(1, len(valoresLongitud))
+        while p1 == p2:
+            p2 = random.randint(1, len(valoresLongitud))
 
         # aqui se obtine el binario
         padre1 = tabla.iloc[p1-1].values[0]
@@ -230,10 +235,9 @@ def cruceJerar(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
     return tabla, valoresLongitud
 
 def cruceAutoJerar(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCruce):
-    tabla, valoresLongitud = jerAuto(
-        listaBin, poblacion, longitud, rangoMin, rangoMax, i)
+    tabla, valoresLongitud = jerAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i)
 
-    tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
+    # tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
 
     regl3 = round((tazaCruce * len(valoresLongitud)) / 100)
 
@@ -241,11 +245,17 @@ def cruceAutoJerar(listaBin, poblacion, longitud, rangoMin, rangoMax, i, tazaCru
         regl3 = 1
 
     print("\nSe procede hacer", regl3, "cruces.\n")
-    pc = int(input("Introduce punto de corte: "))
+    # pc = int(input("Introduce punto de corte: "))
+    pc = random.randint(1, longitud)
+    print(f"El punto de corte para esta generacion es: {pc} \n")
 
     for i in range(regl3):
-        p1 = int(input("\nIntroduce el indice del padre 1: "))
-        p2 = int(input("Introduce el indice del padre 2: "))
+        # p1 = int(input("\nIntroduce el indice del padre 1: "))
+        # p2 = int(input("Introduce el indice del padre 2: "))
+        p1 = random.randint(1, len(valoresLongitud))
+        p2 = random.randint(1, len(valoresLongitud))
+        while p1 == p2:
+            p2 = random.randint(1, len(valoresLongitud))
 
         # aqui se obtine el binario
         padre1 = tabla.iloc[p1-1].values[0]

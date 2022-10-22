@@ -44,6 +44,9 @@ rangoMax = int(input("Ingrese el rango maximo: "))
 tazaCruce = int(input("Ingrese la taza de cruce: "))
 tazaMutacion = int(input("Ingrese la taza de mutacion: "))
 longitud = round(math.log2(1+((rangoMax - rangoMin) / presicion)))
+# print(longitud)
+# print(type(longitud))
+# input()
 
 if algoritmo == "1":
     '''Primera Opcion'''
