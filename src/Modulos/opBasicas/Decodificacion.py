@@ -129,8 +129,7 @@ def deco(binario, rangoMin, rangoMax):
 
 
 def DecodificacionAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
-    listaDecimales, longitud, listaBinarios = binarioDecimalAuto(
-        listaBin, poblacion, longitud)
+    listaDecimales, longitud, listaBinarios = binarioDecimalAuto(listaBin, poblacion, longitud)
     funMin = funcionMatematica(rangoMin)
     funMax = funcionMatematica(rangoMax)
 

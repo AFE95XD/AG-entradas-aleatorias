@@ -1,5 +1,5 @@
 import math
-from Generaciones import combi1a, combi1b, combi1c, combi2a, combi2b, combi2c
+from Generaciones import combi1a, combi1b, combi1c, combi2a, combi2b, combi2c, combi3a, combi3b, combi3c
 print('''
 ************************************************************
 *    --------------------Bienvenido-------------------     *
@@ -25,6 +25,7 @@ print('''
 *                                                          *
 *    1) Seleccion o Ordenamamiento Ruleta                  *
 *    2) Seleccion o Ordenamamiento Jerarquica              *
+*    3) Seleccion o Ordenamamiento Torneo                  *
 *                                                          *
 *    ------------------Metodo de Cruce----------------     *
 *                                                          *
@@ -63,19 +64,26 @@ if algoritmo == "1":
         combi2b(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
     elif seleccion == "2" and metCruce == "c":
         combi2c(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
+        '''Tercera Opcion'''
+    elif seleccion == "3" and metCruce == "a":
+        combi3a(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
+    elif seleccion == "3" and metCruce == "b":
+        combi3b(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
+    elif seleccion == "3" and metCruce == "c":
+        combi3c(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
 
-elif algoritmo == "2":
-    '''Primera Opcion'''
-    if seleccion == "1" and metCruce == "a":
-        combi1a(poblacion, longitud, rangoMin, rangoMax)
-    elif seleccion == "1" and metCruce == "b":
-        combi1b(poblacion, longitud, rangoMin, rangoMax)
-    elif seleccion == "1" and metCruce == "c":
-        combi1c(poblacion, longitud, rangoMin, rangoMax)
-        '''Segunda Opcion'''
-    elif seleccion == "2" and metCruce == "a":
-        combi2a(poblacion, longitud, rangoMin, rangoMax)
-    elif seleccion == "2" and metCruce == "b":
-        combi2b(poblacion, longitud, rangoMin, rangoMax)
-    elif seleccion == "2" and metCruce == "c":
-        combi2c(poblacion, longitud, rangoMin, rangoMax)
+# elif algoritmo == "2":
+#     '''Primera Opcion'''
+#     if seleccion == "1" and metCruce == "a":
+#         combi1a(poblacion, longitud, rangoMin, rangoMax)
+#     elif seleccion == "1" and metCruce == "b":
+#         combi1b(poblacion, longitud, rangoMin, rangoMax)
+#     elif seleccion == "1" and metCruce == "c":
+#         combi1c(poblacion, longitud, rangoMin, rangoMax)
+#         '''Segunda Opcion'''
+#     elif seleccion == "2" and metCruce == "a":
+#         combi2a(poblacion, longitud, rangoMin, rangoMax)
+#     elif seleccion == "2" and metCruce == "b":
+#         combi2b(poblacion, longitud, rangoMin, rangoMax)
+#     elif seleccion == "2" and metCruce == "c":
+#         combi2c(poblacion, longitud, rangoMin, rangoMax)

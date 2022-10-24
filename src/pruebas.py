@@ -69,14 +69,14 @@
 
 # torneo(13, 9, 1, 9)
 
-from Modulos.opBasicas.BinarioDecimal import binarioDecimal, binarioDecimalAuto
+# from Modulos.opBasicas.BinarioDecimal import binarioDecimal, binarioDecimalAuto
 
-lita=[1101111111001, 1010101010000, 1010100100111, 100100101001, 1000010011010, 1110111011011, 100111000, 110101111111, 1010100110001, 101110110000]
-listaDecimales, longitud, listaBinarios = binarioDecimalAuto(lita, 10, 13)
-print(listaDecimales, longitud, listaBinarios)
+# lita=[1101111111001, 1010101010000, 1010100100111, 100100101001, 1000010011010, 1110111011011, 100111000, 110101111111, 1010100110001, 101110110000]
+# listaDecimales, longitud, listaBinarios = binarioDecimalAuto(lita, 10, 13)
+# print(listaDecimales, longitud, listaBinarios)
 
-print(listaBinarios[0])
-print(type(listaBinarios[0]))
+# print(listaBinarios[0])
+# print(type(listaBinarios[0]))
 
 # 010111010  186
 # 100101001  297
@@ -91,3 +91,19 @@ print(type(listaBinarios[0]))
 # 001010101  85
 # 001100010  98
 # 001111001  121
+
+
+'''ELITISTA'''
+import pandas as pd
+from Modulos.opBasicas.Decodificacion import DecodificacionManuales
+
+tablaManual, valoresLongitud = DecodificacionManuales(10,9,1,6)
+tablaOrd = tablaManual.sort_values("Adaptado f(x)", ascending=False, ignore_index=True)
+print("\n",tablaOrd)
+mejor = pd.DataFrame()
+fila = pd.Series(tablaOrd.iloc[0].to_dict())
+mejor = pd.concat([mejor, fila.to_frame().T], ignore_index=True)
+mejor.index = [1]
+print("\n", mejor)
+tablaNueva = tablaOrd.drop(index=0)
+print("\n", tablaNueva)
