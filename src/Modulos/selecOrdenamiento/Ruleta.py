@@ -50,3 +50,33 @@ def tablaOrdenadaAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
     # print(valoresLongitud)
 
     return tablaOrdenada, valoresLongitud
+
+'''------------------------Elitista------------------------'''
+def elitistaRuleta(tablaManual):
+    dicCompleto = tablaManual.to_dict("list")
+    listaAdaptado = dicCompleto["Adaptado f(x)"]
+    tablaManual["Ruleta [%]"] = porcentajeRuleta(listaAdaptado)
+    print("\nLa Tabla con el Porsentaje Ruleta es:\n")
+    print(tablaManual)
+    print("\nLa Tabla Ordenada es:\n")
+    tabOrd = tablaManual.sort_values("Ruleta [%]", ascending=False)
+    print(tabOrd)
+    dic = tabOrd.to_dict("list")
+    dicOrdFil = {
+        "Binarios": dic["Binarios"],
+        "Adaptado f(x)": dic["Adaptado f(x)"]
+    }
+    
+    valoresLongitud = []
+    for x in range(len(tabOrd)):
+        valoresLongitud.append(x + 1)
+    
+    tablaOrdenada = pd.DataFrame(dicOrdFil, valoresLongitud)
+    print("\nLa tabla con los Individuos y su Adaptacion son:\n")
+    print(tablaOrdenada)
+
+    # print(valoresLongitud)
+    
+    return tablaOrdenada, valoresLongitud
+
+

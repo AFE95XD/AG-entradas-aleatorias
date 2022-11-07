@@ -30,31 +30,35 @@
 # print(longitud)
 # print(listaBinarios)
 
-# padre1 = "0100101011"
-# padre2 = "0010101110"
+padre1 = "010010101101"
+padre2 = "001010111010"
+print('P1',padre1)
+print('P2',padre2)
+pcMax = 8
+pcMin = 1
 
-# pcMax = 6
-# pcMin = 2
+if pcMin != 1:
+    print('entro al diferente')
+    hijo1 = padre1[:-pcMax]
+    hijo2 = padre2[:-pcMax]
+    corteP1 = padre1[-pcMax:-(pcMin-1)]
+    corteP2 = padre2[-pcMax:-(pcMin-1)]
+    res1 = padre1[-(pcMin-1):]
+    res2 = padre2[-(pcMin-1):]
 
-# if pcMin != 0:
-#     hijo1 = padre1[:-pcMax]
-#     hijo2 = padre2[:-pcMax]
-#     corteP1 = padre1[-pcMax:-(pcMin-1)]
-#     corteP2 = padre2[-pcMax:-(pcMin-1)]
-#     res1 = padre1[-(pcMin-1):]
-#     res2 = padre2[-(pcMin-1):]
+    hijo1 = hijo1 + corteP2 + res1
+    hijo2 = hijo2 + corteP1 + res2
+else:
+    hijo1 = padre1[:-pcMax]
+    hijo2 = padre2[:-pcMax]
+    corteP1 = padre1[-pcMax:]
+    corteP2 = padre2[-pcMax:]
 
-#     hijo1 = hijo1 + corteP2 + res1
-#     hijo2 = hijo2 + corteP1 + res2
-# else:
-#     hijo1 = padre1[:-pcMax]
-#     hijo2 = padre2[:-pcMax]
-#     corteP1 = padre1[-pcMax:]
-#     corteP2 = padre2[-pcMax:]
+    hijo1 = hijo1 + corteP2
+    hijo2 = hijo2 + corteP1
 
-#     hijo1 = hijo1 + corteP2
-#     hijo2 = hijo2 + corteP1
-
+print(hijo1)
+print(hijo2)
 # corteP3 = padre2[-pcMax:]
 # print(corteP3)
 
@@ -93,17 +97,23 @@
 # 001111001  121
 
 
-'''ELITISTA'''
-import pandas as pd
-from Modulos.opBasicas.Decodificacion import DecodificacionManuales
+# '''ELITISTA'''
+# import pandas as pd
+# from Modulos.opBasicas.Decodificacion import DecodificacionManuales
+# from Modulos.selecOrdenamiento.Ruleta import elitistaRuleta
 
-tablaManual, valoresLongitud = DecodificacionManuales(10,9,1,6)
-tablaOrd = tablaManual.sort_values("Adaptado f(x)", ascending=False, ignore_index=True)
-print("\n",tablaOrd)
-mejor = pd.DataFrame()
-fila = pd.Series(tablaOrd.iloc[0].to_dict())
-mejor = pd.concat([mejor, fila.to_frame().T], ignore_index=True)
-mejor.index = [1]
-print("\n", mejor)
-tablaNueva = tablaOrd.drop(index=0)
-print("\n", tablaNueva)
+# tablaManual, _, = DecodificacionManuales(10,9,1,6)
+# tablaOrd = tablaManual.sort_values("Adaptado f(x)", ascending=False, ignore_index=True)
+# # print("\n",tablaOrd)
+# mejor = pd.DataFrame()
+# fila = pd.Series(tablaOrd.iloc[0].to_dict())
+# mejor = pd.concat([mejor, fila.to_frame().T], ignore_index=True)
+# mejor.index = [1]
+# print("\nEl individuo con mayor adaptacion es:\n")
+# print(mejor)
+# tablaNueva = tablaOrd.drop(index=0)
+# print("\nLos individuos restantes son:\n")
+# print(tablaNueva)
+# tablaOrdenada, valoresLongitud = elitistaRuleta(tablaNueva)
+# print(type(tablaOrdenada))
+

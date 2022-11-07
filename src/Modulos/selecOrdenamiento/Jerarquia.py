@@ -41,7 +41,7 @@ def jer(poblacion, longitud, rangoMin, rangoMax):
     }
     tablaOrdenada = pd.DataFrame(dicOrdFil, index=valoresLongitud)
     print(tablaOrdenada)
-    input()
+    # input()
     return tablaOrdenada, valoresLongitud
 
 def jerAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
@@ -77,4 +77,42 @@ def jerAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
     }
     tablaOrdenada = pd.DataFrame(dicOrdFil, index=valoresLongitud)
     print(tablaOrdenada)
+    return tablaOrdenada, valoresLongitud
+
+'''------------------------Elitista------------------------'''
+def jerElitista(tablaManual):
+    valoresLongitud = []
+    for x in range(len(tablaManual)):
+        valoresLongitud.append(x + 1)
+
+    tablaM = tablaManual.sort_values("Adaptado f(x)")
+    tablaM["Jer o Rango"] = valoresLongitud
+    tablaM = tablaM.sort_index()
+    print("La tabla con los rangos es:\n")
+    print(tablaM)
+    print()
+
+    listaVJ = []
+    for i in range(len(tablaM)):
+        rango = tablaM["Jer o Rango"].iloc[i]
+        n = len(tablaM)
+        jmax, jmin = sacaJmin(rango)
+        vj = jmin + ((jmax-jmin)*((rango-1)/(n-1)))
+        listaVJ.append(vj)
+
+    tablaM["Val Esp"] = listaVJ
+    print("La tabla con los vaoler esperados es:\n")
+    print(tablaM)
+    print()
+
+    print("\nLa Tabla Ordenada es:\n")
+    tabOrd = tablaM.sort_values("Val Esp", ascending=False)
+    dic = tabOrd.to_dict("list")
+    dicOrdFil = {
+        "Binarios": dic["Binarios"],
+        "Adaptado f(x)": dic["Adaptado f(x)"]
+    }
+    tablaOrdenada = pd.DataFrame(dicOrdFil, index=valoresLongitud)
+    print(tablaOrdenada)
+    # input()
     return tablaOrdenada, valoresLongitud
