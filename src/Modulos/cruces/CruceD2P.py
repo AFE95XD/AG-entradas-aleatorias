@@ -14,6 +14,7 @@ def cruce2P(poblacion, longitud, rangoMin, rangoMax, tazaCruce):
         regl3 = 1
 
     print("\nSe procede hacer", regl3, "cruces.\n")
+    input("paro para checar los cruces")
     # pcMin = int(input("Introduce el punto de corte Minimo: "))
     # pcMax = int(input("Introduce el punto de corte Maximo: "))
     mitad = round(longitud/2)
@@ -812,7 +813,7 @@ def cruce2PJerarElitista(tablaNueva, poblacion, longitud, rangoMin, rangoMax, ta
 
 '''CRUCE 2 PUNTOS : Torneo'''
 def cruce2PTorneoElitista(tablaNueva, poblacion, longitud, rangoMin, rangoMax, tazaCruce):
-    tabla, valoresLongitud = torneoElitista(tablaNueva)
+    tabla, valoresLongitud = torneoElitista(tablaNueva, poblacion, longitud, rangoMin, rangoMax)
 
     regl3 = round((tazaCruce * len(valoresLongitud)) / 100)
 

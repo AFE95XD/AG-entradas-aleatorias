@@ -657,7 +657,7 @@ def cruceJerarElitista(tablaNueva, poblacion, longitud, rangoMin, rangoMax, taza
 
 '''CRUCE 1 PUNTO : Torneo'''
 def cruceTorneoElitista(tablaNueva, poblacion, longitud, rangoMin, rangoMax, tazaCruce):
-    tabla, valoresLongitud = torneoElitista(tablaNueva)
+    tabla, valoresLongitud = torneoElitista(tablaNueva, poblacion, longitud, rangoMin, rangoMax)
 
     # tazaCruce = int(input("\nPor favor ingrese la Taza de cruce: "))
 

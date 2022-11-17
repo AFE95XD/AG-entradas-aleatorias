@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 import math
+from math import e
 from ..opBasicas.BinarioDecimal import binarioDecimal, binarioDecimalAuto
 
 # Este es el rango que proporciona para evaluar la funcion
@@ -11,11 +12,14 @@ writer = pd.ExcelWriter("src/img/tablasIndi.xlsx", engine='openpyxl')
 
 def funcionMatematica(valor):
     # fx = (5 * math.sin(valor)) + (2 * math.pow(valor, 2))
-    fx = ((8 * math.cos(valor)) + valor + (5 * math.pow(valor, 2)))
+    # fx = ((8 * math.cos(valor)) + valor + (5 * math.pow(valor, 2)))
     # fx = ((6 * math.sin(valor)) + (3 * math.pow(valor, 2)))
     # fx = (8 * math.sin(2 * valor)+ (6 * valor))
     # fx = (5*math.sin(valor) + 3*valor + 4 * (valor**2))
     # fx = (2*valor) * (math.sin(valor))
+    # fx = ((2*math.pow(valor,2)) * math.sin(valor)) + ((8*math.pow(valor,2))/(valor)) + math.pow(e,valor)
+    # fx = (((2*math.cos(valor**2))+math.sin(valor))/math.sqrt(3*valor+1))
+    fx = 2*math.sin(valor) + 7*math.pow(e,(valor+1)) - math.pow(e,(math.sin(math.pi))) + (5*valor)
     return fx
 
 
@@ -27,11 +31,14 @@ def sacarReal(decimal, lng, rangoMin, rangoMax):
 
 def sacarAdaptado(real):
     # fun = (5 * math.sin(real)) + (2 * math.pow(real, 2))
-    fun = ((8 * math.cos(real)) + real + (5 * math.pow(real, 2)))
+    # fun = ((8 * math.cos(real)) + real + (5 * math.pow(real, 2)))
     # fun = (5*math.sin(real) + 3*real + 4 * (real**2))
     # fun = ((6 * math.sin(real)) + (3 * math.pow(real, 2)))
     # fun = (8 * math.sin(2 * real)+ (6 * real))
     # fun = (2*real) * (math.sin(real))
+    # fun = ((2*math.pow(real,2)) * math.sin(real)) + ((8*math.pow(real,2))/(real)) + math.pow(e,real)
+    # fun = (((2*math.cos(real**2))+math.sin(real))/math.sqrt(3*real+1))
+    fun = 2*math.sin(real) + 7*math.pow(e,(real+1)) - math.pow(e,(math.sin(3.14))) + (5*real)
     return fun
 
 
@@ -72,6 +79,7 @@ def DecodificacionManuales(poblacion, longitud, rangoMin, rangoMax):
         valoresLongitud.append(x + 1)
 
     print("\nLa funcion evaluada en el rango maximo es: ", funMax)
+    # input("paro para checar la funcion")
     # input()
     # print("\nLos decimales son: ", listaDecimales)
     # print("\nLos valores reales son: ", listaReales)

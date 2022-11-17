@@ -63,11 +63,19 @@ def torneo(poblacion, longitud, rangoMin, rangoMax):
     print("La Tabla Ordenada con Torneo es:\n")
     print(nuevaTabla)
     dic = nuevaTabla.to_dict("list")
+    print("Agregando Individuos Faltantes")
+    pobF = poblacion/2
+    tablaManualF, _, = DecodificacionManuales(pobF, longitud, rangoMin, rangoMax)
+    dicF = tablaManualF.to_dict("list")
     dicOrdFil = {
-        "Binarios": dic["Binarios"],
-        "Adaptado f(x)": dic["Adaptado f(x)"]
+        "Binarios": dic["Binarios"] + dicF["Binarios"],
+        "Adaptado f(x)": dic["Adaptado f(x)"] + dicF["Adaptado f(x)"]
     }
-    tablaOrdenada = pd.DataFrame(dicOrdFil, index=valoresLongitud)
+    tablaOrdenada = pd.DataFrame(dicOrdFil)
+    valoresLongitud = []
+    for x in range(len(tablaOrdenada)):
+        valoresLongitud.append(x + 1)
+    tablaOrdenada.index = valoresLongitud
     print("\nLa Tabla Ordenada con Torneo de Binarios y adaptados es:\n")
     print(tablaOrdenada)
     return tablaOrdenada, valoresLongitud
@@ -132,17 +140,25 @@ def torneoAuto(listaBin, poblacion, longitud, rangoMin, rangoMax, i):
     print("La Tabla Ordenada con Torneo es:\n")
     print(nuevaTabla)
     dic = nuevaTabla.to_dict("list")
+    print("Agregando Individuos Faltantes")
+    pobF = poblacion/2
+    tablaManualF, _, = DecodificacionManuales(pobF, longitud, rangoMin, rangoMax)
+    dicF = tablaManualF.to_dict("list")
     dicOrdFil = {
-        "Binarios": dic["Binarios"],
-        "Adaptado f(x)": dic["Adaptado f(x)"]
+        "Binarios": dic["Binarios"] + dicF["Binarios"],
+        "Adaptado f(x)": dic["Adaptado f(x)"] + dicF["Adaptado f(x)"]
     }
-    tablaOrdenada = pd.DataFrame(dicOrdFil, index=valoresLongitud)
+    tablaOrdenada = pd.DataFrame(dicOrdFil)
+    valoresLongitud = []
+    for x in range(len(tablaOrdenada)):
+        valoresLongitud.append(x + 1)
+    tablaOrdenada.index = valoresLongitud
     print("\nLa Tabla Ordenada con Torneo de Binarios y adaptados es:\n")
     print(tablaOrdenada)
     return tablaOrdenada, valoresLongitud
 
 '''------------------------Elitista------------------------'''
-def torneoElitista(tablaManual):
+def torneoElitista(tablaManual, poblacion, longitud, rangoMin, rangoMax):
     valoresLongitud = []
     for x in range(len(tablaManual)):
         valoresLongitud.append(x + 1)
@@ -206,11 +222,19 @@ def torneoElitista(tablaManual):
     print("La Tabla Ordenada con Torneo es:\n")
     print(nuevaTabla)
     dic = nuevaTabla.to_dict("list")
+    print("Agregando Individuos Faltantes")
+    pobF = poblacion/2
+    tablaManualF, _, = DecodificacionManuales(pobF, longitud, rangoMin, rangoMax)
+    dicF = tablaManualF.to_dict("list")
     dicOrdFil = {
-        "Binarios": dic["Binarios"],
-        "Adaptado f(x)": dic["Adaptado f(x)"]
+        "Binarios": dic["Binarios"] + dicF["Binarios"],
+        "Adaptado f(x)": dic["Adaptado f(x)"] + dicF["Adaptado f(x)"]
     }
-    tablaOrdenada = pd.DataFrame(dicOrdFil, index=valoresLongitud)
+    tablaOrdenada = pd.DataFrame(dicOrdFil)
+    valoresLongitud = []
+    for x in range(len(tablaOrdenada)):
+        valoresLongitud.append(x + 1)
+    tablaOrdenada.index = valoresLongitud
     print("\nLa Tabla Ordenada con Torneo de Binarios y adaptados es:\n")
     print(tablaOrdenada)
     return tablaOrdenada, valoresLongitud

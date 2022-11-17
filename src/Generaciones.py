@@ -124,6 +124,8 @@ def combi1c(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
     elif paro == "2":
         porsentaje = int(input("Ingrese el porsentaje de convergencia: "))
         convergencia = round((porsentaje * poblacion) / 100)
+        # print("La convergencia es. ", convergencia)
+        # input()
         print()
         valMax = funcionMatematica(rangoMax)
         x = 1
@@ -276,8 +278,8 @@ def combi2c(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
 
 '''COMBINACION 3 A = Torneo + Cruce de 1 punto'''
 def combi3a(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
-    doblePoblacion = poblacion * 2
-    listaBinarios, tabla = mutacionTorneo(doblePoblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
+    # doblePoblacion = poblacion * 2
+    listaBinarios, tabla = mutacionTorneo(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
     print('''
 ************************************************************
 *    --------------------Tipo de Paro-----------------     *
@@ -295,10 +297,10 @@ def combi3a(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         print()
         x = 1
         while (x != gen):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla = mutacionAutoTorneo(listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             x += 1
@@ -311,10 +313,10 @@ def combi3a(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         valMax = funcionMatematica(rangoMax)
         x = 1
         while not(len(tabla[tabla["Adaptado f(x)"] >= valMax]) >= convergencia):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla = mutacionAutoTorneo(listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             x += 1
@@ -328,8 +330,8 @@ def combi3a(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
 
 '''COMBINACION 3 B = Torneo + Cruce de 2 puntos'''
 def combi3b(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
-    doblePoblacion = poblacion * 2
-    listaBinarios, tabla = mutacionPC2Torneo(doblePoblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
+    # doblePoblacion = poblacion * 2
+    listaBinarios, tabla = mutacionPC2Torneo(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
     print('''
 ************************************************************
 *    --------------------Tipo de Paro-----------------     *
@@ -347,10 +349,10 @@ def combi3b(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         print()
         x = 1
         while (x != gen):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla = mutacionPC2AutoTorneo(listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             x += 1
@@ -363,10 +365,10 @@ def combi3b(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         valMax = funcionMatematica(rangoMax)
         x = 1
         while not(len(tabla[tabla["Adaptado f(x)"] >= valMax]) >= convergencia):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla = mutacionPC2AutoTorneo(listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             x += 1
@@ -380,8 +382,8 @@ def combi3b(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
 
 '''COMBINACION 3 C = Torneo + Cruce Uniforme'''
 def combi3c(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
-    doblePoblacion = poblacion * 2
-    listaBinarios, tabla = mutacionUnifTorneo(doblePoblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
+    # doblePoblacion = poblacion * 2
+    listaBinarios, tabla = mutacionUnifTorneo(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
     print('''
 ************************************************************
 *    --------------------Tipo de Paro-----------------     *
@@ -399,10 +401,10 @@ def combi3c(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         print()
         x = 1
         while (x != gen):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla = mutacionUnifAutoTorneo(listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             x += 1
@@ -416,10 +418,10 @@ def combi3c(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         valMax = funcionMatematica(rangoMax)
         x = 1
         while not(len(tabla[tabla["Adaptado f(x)"] >= valMax]) >= convergencia):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla = mutacionUnifAutoTorneo(listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             x += 1
@@ -714,8 +716,8 @@ def combi22c(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
 
 '''COMBINACION 3 A = Torneo + Cruce de 1 punto'''
 def combi23a(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
-    doblePoblacion = poblacion * 2
-    listaBinarios, tabla, mejor = elitista3A(doblePoblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
+    # doblePoblacion = poblacion * 2
+    listaBinarios, tabla, mejor = elitista3A(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
     print('''
 ************************************************************
 *    --------------------Tipo de Paro-----------------     *
@@ -733,10 +735,10 @@ def combi23a(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         print()
         x = 1
         while (x != gen):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla, mejor1 = elitista3Aauto(mejor, listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             mejor = mejor1
@@ -750,10 +752,10 @@ def combi23a(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         valMax = funcionMatematica(rangoMax)
         x = 1
         while not(len(tabla[tabla["Adaptado f(x)"] >= valMax]) >= convergencia):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla, mejor1 = elitista3Aauto(mejor, listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             mejor = mejor1
@@ -768,8 +770,8 @@ def combi23a(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
 
 '''COMBINACION 3 B = Torneo + Cruce de 2 puntos'''
 def combi23b(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
-    doblePoblacion = poblacion * 2
-    listaBinarios, tabla, mejor = elitista3B(doblePoblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
+    # doblePoblacion = poblacion * 2
+    listaBinarios, tabla, mejor = elitista3B(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
     print('''
 ************************************************************
 *    --------------------Tipo de Paro-----------------     *
@@ -787,10 +789,10 @@ def combi23b(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         print()
         x = 1
         while (x != gen):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla, mejor1 = elitista3Bauto(mejor, listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             mejor = mejor1
@@ -804,10 +806,10 @@ def combi23b(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         valMax = funcionMatematica(rangoMax)
         x = 1
         while not(len(tabla[tabla["Adaptado f(x)"] >= valMax]) >= convergencia):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla, mejor1 = elitista3Bauto(mejor, listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             mejor = mejor1
@@ -822,8 +824,8 @@ def combi23b(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
 
 '''COMBINACION 3 C = Torneo + Cruce Uniforme'''
 def combi23c(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
-    doblePoblacion = poblacion * 2
-    listaBinarios, tabla, mejor = elitista3C(doblePoblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
+    # doblePoblacion = poblacion * 2
+    listaBinarios, tabla, mejor = elitista3C(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion)
     print('''
 ************************************************************
 *    --------------------Tipo de Paro-----------------     *
@@ -841,10 +843,10 @@ def combi23c(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         print()
         x = 1
         while (x != gen):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla, mejor1 = elitista3Cauto(mejor, listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             mejor = mejor1
@@ -858,10 +860,10 @@ def combi23c(poblacion, longitud, rangoMin, rangoMax, tazaCruce, tazaMutacion):
         valMax = funcionMatematica(rangoMax)
         x = 1
         while not(len(tabla[tabla["Adaptado f(x)"] >= valMax]) >= convergencia):
-            print("Agregando Binarios faltantes")
-            _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
-            print("-----------------------------------------------------\n")
-            listaBinarios = listaBinarios + BinariosFaltantes
+            # print("Agregando Binarios faltantes")
+            # _, _, BinariosFaltantes = binarioDecimal(poblacion, longitud)
+            # print("-----------------------------------------------------\n")
+            # listaBinarios = listaBinarios + BinariosFaltantes
             listaBin, tabla, mejor1 = elitista3Cauto(mejor, listaBinarios, poblacion, longitud, rangoMin, rangoMax, x, tazaCruce, tazaMutacion)
             listaBinarios = listaBin
             mejor = mejor1
